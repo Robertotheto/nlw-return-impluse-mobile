@@ -21,11 +21,11 @@ background-color: ${({ theme }) => theme.colors.surface_secondary};
 border-radius: 4px;
 justify-content: center;
 align-items: center;
-padding: 24px 0;
+padding: 0 24px;
 margin-bottom: 56px;
 `;
 export const ButtonTitle = styled.Text`
 font-size: 14px;
 font-family: ${({ theme }) => theme.fonts.medium};
-    color: ${({ theme }) => theme.colors.text_primary};
+color: ${({ theme }) => theme.colors.text_primary};
 `;

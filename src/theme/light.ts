@@ -2,7 +2,7 @@
 export const light = {
   colors: {
     brand: '#8257E5',
-    background: '#ffffff',
+    background: '#f4f4f5',
 
     surface_primary: '#ffffff',
     surface_secondary: '#f4f4f5',
