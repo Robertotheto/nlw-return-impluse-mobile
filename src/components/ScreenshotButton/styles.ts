@@ -1,24 +1,17 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    width: 40,
-    height: 40,
-    borderRadius: 4,
-    backgroundColor: theme.colors.surface_secondary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 8,
-    position: 'relative',
-  },
-  removeIcon: {
-    position: 'absolute',
-    right: 0,
-    bottom: 0,
-  },
-  image: {
-    width: 40,
-    height: 40,
-  }
-});
+import styled from "styled-components/native";
+
+export const Container = styled.TouchableOpacity`
+width: 40px;
+height: 40px;
+border-radius: 4px;
+background-color: ${({ theme }) => theme.colors.surface_secondary};
+justify-content: center;
+align-items: center;
+margin-right: 8px;
+position: relative;
+`;
+export const Image = styled.Image`
+width: 40px;
+height: 40px;
+`;

@@ -1,25 +1,22 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../theme';
+import styled from "styled-components/native";
 
-export const styles = StyleSheet.create({
-  container: {
-    width: 104,
-    height: 112,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 8,
-    borderRadius: 8,
-    marginHorizontal: 8,
-    backgroundColor: theme.colors.surface_secondary,
-  },
-  image: {
-    width: 40,
-    height: 40,
-  },
-  title: {
-    fontSize: 18,
-    marginTop: 8,
-    fontFamily: theme.fonts.medium,
-    color: theme.colors.text_primary,
-  }
-});
+export const Container = styled.TouchableOpacity`
+width: 104px;
+height: 112px;
+justify-content: center;
+align-items: center;
+padding: 8px;
+border-radius: 8px;
+margin: 0 8px;
+background-color: ${({ theme }) => theme.colors.surface_secondary};
+`;
+export const Image = styled.Image`
+width: 40px;
+height: 40px;
+`;
+export const Title = styled.Text`
+font-size: 18px;
+margin-top: 8px;
+font-family: ${({ theme }) => theme.fonts.medium};
+color: ${({ theme }) => theme.colors.text_primary};
+`;

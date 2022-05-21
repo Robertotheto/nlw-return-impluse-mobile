@@ -1,15 +1,23 @@
 import { ArrowLeft } from 'phosphor-react-native';
 import React, { useState } from 'react';
-import { TouchableOpacity, View, TextInput, Text, Image } from 'react-native';
-import { theme } from '../../theme';
+import { TouchableOpacity } from 'react-native';
 import { feedbackTypes } from '../../utils/feedbackTypes';
 import { Button } from '../Button';
 import { ScreenshotButton } from '../ScreenshotButton';
 import { captureScreen } from 'react-native-view-shot';
 import { FeedbackType } from '../Widget';
 import * as FileSystem from 'expo-file-system';
-import { styles } from './styles';
+import {
+  Container,
+  Header,
+  Footer,
+  Image,
+  Input,
+  Title,
+  Text
+} from './styles';
 import { api } from '../../libs/api';
+import { useTheme } from 'styled-components'
 
 interface Props {
   feedbackType: FeedbackType;
@@ -18,7 +26,7 @@ interface Props {
 }
 
 export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props) {
-
+  const theme = useTheme()
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState('');
@@ -56,8 +64,8 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
     }
   }
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <Container>
+      <Header>
         <TouchableOpacity onPress={onFeedbackCanceled}>
           <ArrowLeft
             size={24}
@@ -65,26 +73,24 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
             color={theme.colors.text_secondary}
           />
         </TouchableOpacity>
-        <View style={styles.titleContainer}>
+        <Title>
           <Image
             source={feedbackTypeInfo.image}
-            style={styles.image}
           />
-          <Text style={styles.titleText}>
+          <Text>
             {feedbackTypeInfo.title}
           </Text>
-        </View>
-      </View>
-      <TextInput
+        </Title>
+      </Header>
+      <Input
         multiline
-        style={styles.input}
         placeholder="Algo não está funcionando bem? Queremos corrigir. 
       Conte com detalhes o que está acontecendo..."
         placeholderTextColor={theme.colors.text_secondary}
         autoCorrect={false}
         onChangeText={setComment}
       />
-      <View style={styles.footer}>
+      <Footer>
         <ScreenshotButton
           screenshot={screenshot}
           onTakeShot={handleScreenshot}
@@ -94,7 +100,7 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
           onPress={handleSentFeedback}
           isLoading={isSendingFeedback}
         />
-      </View>
-    </View>
+      </Footer>
+    </Container>
   );
 }

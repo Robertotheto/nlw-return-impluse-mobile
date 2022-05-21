@@ -1,34 +1,31 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../theme';
+import styled from "styled-components/native";
 
-export const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-  },
-  image: {
-    width: 36,
-    height: 36,
-    marginTop: 42,
-    marginBottom: 10,
-  },
-  title: {
-    fontSize: 20,
-    marginBottom: 24,
-    fontFamily: theme.fonts.medium,
-    color: theme.colors.text_primary,
-  },
-  button: {
-    height: 40,
-    backgroundColor: theme.colors.surface_secondary,
-    borderRadius: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    marginBottom: 56,
-  },
-  buttonTitle: {
-    fontSize: 14,
-    fontFamily: theme.fonts.medium,
-    color: theme.colors.text_primary,
-  },
-});
+export const Container = styled.View`
+align-items: center;
+`;
+export const Image = styled.Image`
+width: 36px;
+height: 36px;
+margin-top: 42px;
+margin-bottom: 10px;
+`;
+export const Title = styled.Text`
+font-size: 20px;
+margin-bottom: 24px;
+font-family: ${({ theme }) => theme.fonts.medium};
+color: ${({ theme }) => theme.colors.text_primary};
+`;
+export const Button = styled.TouchableOpacity`
+height: 40px;
+background-color: ${({ theme }) => theme.colors.surface_secondary};
+border-radius: 4px;
+justify-content: center;
+align-items: center;
+padding: 24px 0;
+margin-bottom: 56px;
+`;
+export const ButtonTitle = styled.Text`
+font-size: 14px;
+font-family: ${({ theme }) => theme.fonts.medium};
+    color: ${({ theme }) => theme.colors.text_primary};
+`;

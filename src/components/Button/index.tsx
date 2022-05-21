@@ -1,8 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, TouchableOpacityProps, Text, ActivityIndicator } from 'react-native';
-import { theme } from '../../theme';
+import { TouchableOpacityProps } from 'react-native';
 
-import { styles } from './styles';
+import { ButtonFeedback, Indicator, Title } from './styles';
 
 interface Props extends TouchableOpacityProps {
   isLoading: boolean;
@@ -10,13 +9,10 @@ interface Props extends TouchableOpacityProps {
 
 export function Button({ isLoading, ...rest }: Props) {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      {...rest}
-    >
+    <ButtonFeedback {...rest}>
       {isLoading
-        ? <ActivityIndicator color={theme.colors.text_on_brand_color} />
-        : <Text style={styles.title}>Enviar Feedback</Text>}
-    </TouchableOpacity>
+        ? <Indicator />
+        : <Title>Enviar Feedback</Title>}
+    </ButtonFeedback>
   );
 }

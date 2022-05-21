@@ -1,20 +1,5 @@
-export const theme = {
-  colors: {
-    brand: '#8257E5',
-    background: '#09090A',
+import { dark } from "./dark";
+import { light } from "./light";
 
-    surface_primary: '#18181B',
-    surface_secondary: '#27272A',
+export const theme = { dark, light };
 
-    text_primary: '#F4F4F5',
-    text_secondary: '#A1A1AA',
-    text_on_brand_color: '#FFFFFF',
-
-    stroke: '#52525B'
-  },
-
-  fonts: {
-    regular: 'Inter_400Regular',
-    medium: 'Inter_500Medium',
-  }
-};

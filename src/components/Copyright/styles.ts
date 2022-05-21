@@ -1,10 +1,7 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../theme';
+import styled from 'styled-components/native';
 
-export const styles = StyleSheet.create({
-  text: {
-    fontSize: 12,
-    color: theme.colors.text_secondary,
-    fontFamily: theme.fonts.medium,
-  }
-});
+export const CopyrightText = styled.Text`
+font-size: 12px;
+color: ${({ theme }) => theme.colors.text_secondary};
+font-family: ${({ theme }) => theme.fonts.medium};
+`;
